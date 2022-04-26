@@ -1,3 +1,5 @@
+<img src="./assets/golang.png" height="80" width="200">   
+
 # Go DDD
 
 [![Go](https://github.com/fabianogoes/go-ddd/actions/workflows/go.yml/badge.svg)](https://github.com/fabianogoes/go-ddd/actions/workflows/go.yml)
