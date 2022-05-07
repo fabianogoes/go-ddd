@@ -11,7 +11,7 @@ import (
 
 func TestAccountDataAccess(t *testing.T) {
 	ctx := context.Background()
-	db, _ := repository.NewPostgresDB(repository.NewConfigDBTest())
+	db, _ := repository.NewPostgresDB(repository.NewPostgresConfigTest())
 	if err := db.Migrator().AutoMigrate(&customerDBO.DBO{}, &DBO{}); err != nil {
 		panic(err)
 	}

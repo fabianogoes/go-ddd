@@ -5,9 +5,9 @@ import (
 	"testing"
 )
 
-func TestNewPostgres(t *testing.T) {
+func TestPostgresConnection(t *testing.T) {
 	t.Run("connection postgres db", func(t *testing.T) {
-		db, err := NewPostgresDB(NewConfigDBTest())
+		db, err := NewPostgresDB(NewPostgresConfigTest())
 		assert.Nil(t, err)
 		assert.NotNil(t, db)
 	})

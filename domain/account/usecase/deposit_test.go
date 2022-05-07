@@ -11,9 +11,10 @@ import (
 	"testing"
 )
 
+// TODO move to integration test structure
 func TestTransactionUseCase(t *testing.T) {
 	ctx := context.Background()
-	db, _ := repository.NewPostgresDB(repository.NewConfigDBTest())
+	db, _ := repository.NewSqliteDB(repository.NewSqliteConfigTest())
 	if err := db.Migrator().AutoMigrate(&customerDBO.DBO{}, &account.DBO{}); err != nil {
 		panic(err)
 	}

@@ -14,7 +14,7 @@ const (
 
 func TestCustomerRepository(t *testing.T) {
 	ctx := context.Background()
-	db, _ := repository.NewPostgresDB(repository.NewConfigDBTest())
+	db, _ := repository.NewPostgresDB(repository.NewPostgresConfigTest())
 	_ = db.Migrator().CreateTable(&DBO{})
 	dataAccess := NewCustomerDataAccess(db)
 
