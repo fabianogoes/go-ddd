@@ -1,0 +1,13 @@
+version: '3'
+volumes:
+  user-data:
+services:
+  db_test:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: test
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    ports:
+      - "5432:5432"
