@@ -2,11 +2,11 @@ package customer
 
 import (
 	"go-ddd/domain/customer/model"
-	"go-ddd/infrastructure/repository"
+	"go-ddd/infrastructure/repository/database"
 )
 
 type DBO struct {
-	repository.BaseDBO
+	database.BaseDBO
 	Name string `gorm:"column:name"`
 	CPF  string `gorm:"column:cpf"`
 }

@@ -4,14 +4,15 @@ import (
 	"context"
 	"github.com/stretchr/testify/assert"
 	"go-ddd/domain/customer/model"
-	"go-ddd/infrastructure/repository"
 	customerDBO "go-ddd/infrastructure/repository/customer"
+	"go-ddd/infrastructure/repository/database"
+	"go-ddd/infrastructure/repository/database/postgres"
 	"testing"
 )
 
 func TestAccountDataAccess(t *testing.T) {
 	ctx := context.Background()
-	db, _ := repository.NewPostgresDB(repository.NewPostgresConfigTest())
+	db, _ := postgres.NewPostgresDB(database.NewPostgresConfigTest())
 	if err := db.Migrator().AutoMigrate(&customerDBO.DBO{}, &DBO{}); err != nil {
 		panic(err)
 	}

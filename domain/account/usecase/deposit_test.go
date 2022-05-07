@@ -4,9 +4,9 @@ import (
 	"context"
 	"github.com/stretchr/testify/assert"
 	"go-ddd/domain/customer/model"
-	"go-ddd/infrastructure/repository"
 	"go-ddd/infrastructure/repository/account"
 	customerDBO "go-ddd/infrastructure/repository/customer"
+	"go-ddd/infrastructure/repository/database/sqlite"
 	"go-ddd/infrastructure/repository/transaction"
 	"testing"
 )
@@ -14,7 +14,7 @@ import (
 // TODO move to integration test structure
 func TestTransactionUseCase(t *testing.T) {
 	ctx := context.Background()
-	db, _ := repository.NewSqliteDB(repository.NewSqliteConfigTest())
+	db, _ := sqlite.NewSqliteDB()
 	if err := db.Migrator().AutoMigrate(&customerDBO.DBO{}, &account.DBO{}); err != nil {
 		panic(err)
 	}

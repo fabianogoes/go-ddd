@@ -3,7 +3,8 @@ package customer
 import (
 	"context"
 	"github.com/stretchr/testify/assert"
-	"go-ddd/infrastructure/repository"
+	"go-ddd/infrastructure/repository/database"
+	"go-ddd/infrastructure/repository/database/postgres"
 	"testing"
 )
 
@@ -14,7 +15,7 @@ const (
 
 func TestCustomerRepository(t *testing.T) {
 	ctx := context.Background()
-	db, _ := repository.NewPostgresDB(repository.NewPostgresConfigTest())
+	db, _ := postgres.NewPostgresDB(database.NewPostgresConfigTest())
 	_ = db.Migrator().CreateTable(&DBO{})
 	dataAccess := NewCustomerDataAccess(db)
 

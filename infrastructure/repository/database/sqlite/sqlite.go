@@ -1,4 +1,4 @@
-package repository
+package sqlite
 
 import (
 	log "github.com/sirupsen/logrus"
@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func NewSqliteDB(config *Config) (*gorm.DB, error) {
+func NewSqliteDB() (*gorm.DB, error) {
 	var db *gorm.DB
 	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 	if err != nil {

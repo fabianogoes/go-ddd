@@ -4,12 +4,12 @@ import (
 	"github.com/google/uuid"
 	"go-ddd/domain/account/model"
 	customerModel "go-ddd/domain/customer/model"
-	"go-ddd/infrastructure/repository"
 	"go-ddd/infrastructure/repository/customer"
+	"go-ddd/infrastructure/repository/database"
 )
 
 type DBO struct {
-	repository.BaseDBO
+	database.BaseDBO
 	Number     int64 `gorm:"column:number"`
 	CustomerID uuid.UUID
 	Customer   customer.DBO
